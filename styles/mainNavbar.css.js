@@ -68,6 +68,7 @@ export const NavBtn = styled.button`
   color: ${props => props.primary ? "white" : props.theme.primaryColor};
   padding: 0.25em 1em;
   margin-right: 20px;
+  cursor: pointer;
 
     ${media.tablet}{
       font-size: large;

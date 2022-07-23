@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useSession, signIn, signOut } from "next-auth/react";
 import {
   NavbarContainer,
   NavbarInnerContainer,
@@ -18,6 +19,7 @@ import {
 
 const MainNavbar = () => {
   const [extendedNavbar, setExtendedNavbar] = useState(false);
+  const { data: session } = useSession();
   const router = useRouter();
   const homeHref = "/";
   const aboutHref = "#about";
@@ -42,6 +44,7 @@ useEffect(() => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
+
 
   return (
     <NavbarContainer extendedNavbar={extendedNavbar} fixed={scrollY > 100}>
@@ -73,7 +76,15 @@ useEffect(() => {
             <NavbarLink href={careerHref} passHref>
               <NavLink active={router.pathname === careerHref}>Careers</NavLink>
             </NavbarLink>
-            <NavBtn primary>Join HighTable</NavBtn>
+            {session ? (
+              <NavBtn primary onClick={() => signOut()}>
+                SignOut
+              </NavBtn>
+            ) : (
+              <NavBtn primary onClick={() => signIn()}>
+                Join HighTable
+              </NavBtn>
+            )}
             {/* <NavBtn>Login</NavBtn> */}
             <OpenLinksButton onClick={() => setExtendedNavbar((curr) => !curr)}>
               {extendedNavbar ? (
