@@ -42,9 +42,31 @@ import {
   ImageWrapperForOffer,
   TestimonyTitleWrapper,
   TestimonyTiltle,
+  TestimonyCardContainer,
+  TestimonyCard,
+  TestimonyDetails,
+  TestimonyUserInfo,
+  TestimonyUserImage,
+  TestimonySection,
+  ContactUsSection,
+  ContactContainer,
+  SubscribeBtn,
+  Footer,
+  FooterWrapper,
+  FoterContent,
+  FoterContentWrapper,
+  Links,
+  FoterSocial,
+  SelectButtonContainer,
+  SocialIcons,
+  FooterLogo,
+  FooterLink,
+  SelectConatiner,
 } from "../styles/index.css";
+import testimonyData from "../constant/testimony";
 
 export default function Home() {
+  const year = new Date().getFullYear();
   return (
     <Layout>
       <Main>
@@ -83,6 +105,10 @@ export default function Home() {
                   Take your manual operations digital and find ideal customers
                   easily.
                 </HeroDescription>
+                <HeroDescriptionMobile>
+                  Take your manual operations digital and find ideal customers
+                  easily.
+                </HeroDescriptionMobile>
                 <SignupBtn primary>
                   Register&nbsp;&nbsp;
                   <svg
@@ -108,6 +134,9 @@ export default function Home() {
                 <HeroDescription>
                   Explore great location options for your next outing experience through our AI powered recommendation feature and reviews from other users.
                 </HeroDescription>
+                <HeroDescriptionMobile>
+                  Explore great location options for your next outing experience through our AI powered recommendation feature and reviews from other users.
+                </HeroDescriptionMobile>
                 <SignupBtn primary>
                   Be a part&nbsp;&nbsp;
                   <svg
@@ -155,11 +184,11 @@ export default function Home() {
             </CardSection>
           </CardsContainer>
         </Section>
-        <AboutSectrion>
+        <AboutSectrion id="about">
           <AboutTitle>
             About HighTable Africa
           </AboutTitle>
-          <Section column="100%" marginBottom="6rem">
+          <Section column="100%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentTile>
               <VerticalLine><h4>Who We Are</h4></VerticalLine>
             </ContentTile>
@@ -176,7 +205,7 @@ export default function Home() {
                 If you also own a business, HighTable Business helps you reach a larger amount of audience in an easier way, enabling you to grow. </Paragraph>
             </ContentDetails>
           </Section>
-          <Section column="40% 40%" marginBottom="6rem">
+          <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentContainer center>
               <ContentTile>
                 <VerticalLine><h4>Our Vision</h4></VerticalLine>
@@ -188,16 +217,16 @@ export default function Home() {
               </ContentDetails>
             </ContentContainer>
             <ContentContainer>
-              <ImageWrapper><Image src="/image/vision.svg" alt="logo" layout="responsive" width="100" height="70" /></ImageWrapper>
+              <ImageWrapper><Image src="/image/vision.svg" alt="vision" layout="responsive" width="100" height="70" /></ImageWrapper>
             </ContentContainer>
           </Section>
-          <Section column="40% 40%" marginBottom="6rem">
-            <ContentContainer>
+          <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }}>
+            <ContentContainer marginBottom={{m: "2rem" }}>
               <ImageWrapper><Image src="/image/mission.svg" alt="logo" layout="responsive" width="100" height="70" sizes="100vw" /></ImageWrapper>
             </ContentContainer>
             <ContentContainer center>
               <ContentTile>
-                <VerticalLine><h4>Our Vision</h4></VerticalLine>
+                <VerticalLine><h4>Our Mission</h4></VerticalLine>
               </ContentTile>
               <ContentDetails>
                 <Paragraph>
@@ -207,7 +236,7 @@ export default function Home() {
             </ContentContainer>
           </Section>
           {/* need fix */}
-          <Section column="100%" marginBottom="6rem">
+          <Section column="100%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentTile>
               <VerticalLine><h4>Our Values</h4></VerticalLine>
             </ContentTile>
@@ -254,7 +283,7 @@ export default function Home() {
               </ValueCard>
             </ValuesContainer>
           </Section>
-          <Section column="100%" marginBottom="3rem">
+          <Section column="100%" marginBottom={{ d: "3rem", m: "1.5rem"}}>
             <ContentTile>
               <VerticalLine><h4>Why Choose Us</h4></VerticalLine>
             </ContentTile>
@@ -299,7 +328,7 @@ export default function Home() {
           </Section>
         </AboutSectrion>
         <BusinessSection>
-          <Section column="100%" marginBottom="6rem">
+          <Section column="100%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentTile>
               <VerticalLine primaryColor><h4>Business</h4></VerticalLine>
             </ContentTile>
@@ -320,7 +349,7 @@ export default function Home() {
                   <button>Sign up&nbsp;&nbsp;<svg width="15" height="15" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.0476 8.53766L9.27471 2.76473L11.7509 0.288574L21.7509 10.2886L11.7509 20.2886L9.27471 17.8124L15.0477 12.0395H0V8.53766H15.0476Z" fill="#FF9916" />
                   </svg>
-</button>
+                  </button>
                 </BusinessBtnContainer>
               </BusinessCards>
               <BusinessCards>
@@ -355,7 +384,7 @@ export default function Home() {
           </Section>
         </BusinessSection>
         <BusinessSection>
-          <Section column="100%" marginBottom="6rem">
+          <Section column="100%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentTile>
               <VerticalLine primaryColor><h4>Consumer</h4></VerticalLine>
             </ContentTile>
@@ -416,8 +445,8 @@ export default function Home() {
             </BusinessCardsContainer>
           </Section>
         </BusinessSection>
-        <Section column="40% 40%" marginBottom="6rem">
-          <ContentContainer>
+        <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }}>
+          <ContentContainer marginBottom={{ m: "3rem" }}>
             <ImageWrapper><Image src="/image/blog.svg" alt="logo" layout="responsive" width="100" height="70" sizes="100vw" /></ImageWrapper>
           </ContentContainer>
           <ContentContainer center>
@@ -433,8 +462,8 @@ export default function Home() {
             <SignupBtn>Get Informed</SignupBtn>
           </ContentContainer>
         </Section>
-        <Section column="40% 40%" marginBottom="6rem">
-          <ContentContainer center>
+        <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }}>
+          <ContentContainer center marginBottom={{ m: "3rem" }}>
             <ContentTile>
               <VerticalLine primaryColor><h4>Join our Amazing Team</h4></VerticalLine>
             </ContentTile>
@@ -452,14 +481,152 @@ export default function Home() {
             <ImageWrapperForOffer><Image src="/image/jobOffer.svg" alt="logo" layout="responsive" width="100" height="70" sizes="100vw" /></ImageWrapperForOffer>
           </ContentContainer>
         </Section>
-        <Section column="100%" marginBottom="4rem">
+        <TestimonySection>
           <TestimonyTitleWrapper>
             <TestimonyTiltle>What our users are</TestimonyTiltle>
             &nbsp;
             <TestimonyTiltle primary>saying</TestimonyTiltle>
           </TestimonyTitleWrapper>
-        </Section>
+          <TestimonyCardContainer>
+            {testimonyData?.map((testimony) => (
+              <TestimonyCard key={testimony.id}>
+                <TestimonyDetails>
+                  <p>“{testimony.message}”</p>
+                </TestimonyDetails>
+                <TestimonyUserInfo>
+                  <TestimonyUserImage>
+                    <Image src={testimony.image} alt="user" layout="responsive" width="100" height="100" sizes="100vw" />
+                  </TestimonyUserImage>
+                  <h5>{testimony.userName}</h5>
+                </TestimonyUserInfo>
+              </TestimonyCard>
+            ))}
+          </TestimonyCardContainer>
+        </TestimonySection>
+        <ContactUsSection>
+          <h3>Stay in the loop</h3>
+          <h4>Be the first to get the latest updates on our regular developments and special offers.</h4>
+          <ContactContainer>
+              <input type="text" placeholder="Email Address" />
+            <SubscribeBtn>Subscribe</SubscribeBtn>
+          </ContactContainer>
+        </ContactUsSection>
       </Main>
+      <Footer>
+        <FooterWrapper>
+          <FoterContent>
+            <FoterContentWrapper>
+              <h5>About HighTable</h5>
+              <Links href="#" passHref>
+                <FooterLink>About Us</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Resources & Policies</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Careers</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Investor Relations</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Content Integrity</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Terms of Use</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Privacy  & Cookies Statement</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>How the site works</FooterLink>
+              </Links>
+            </FoterContentWrapper>
+            <FoterContentWrapper>
+              <h5>Explore</h5>
+              <Links href="#" passHref>
+                <FooterLink>Write a review</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Join Our Community</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Blog</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Help Center</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Advertise with Us</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Sponsored Placements</FooterLink>
+              </Links>
+            </FoterContentWrapper>
+            <FoterContentWrapper>
+              <h5>Get The App</h5>
+              <Links href="#" passHref>
+                <FooterLink>IOS App</FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink>Android App</FooterLink>
+              </Links>
+            </FoterContentWrapper>
+          </FoterContent>
+          <FoterSocial>
+            <SelectButtonContainer>
+              <SelectConatiner>
+                <span className="focus"></span>
+                <select defaultValue="LGS NGN">
+                  <option>LGS NGN</option>
+                  <option>LGS NGN</option>
+                  <option>LGS NGN</option>
+                  <option>LGS NGN</option>
+                </select>
+              </SelectConatiner>
+              <SelectConatiner>
+                <span className="focus"></span>
+                <select defaultValue="Nigeria">
+                  <option>Nigeria</option>
+                  <option>South Africa</option>
+                  <option>USA</option>
+                  <option>Canada</option>
+                </select>
+              </SelectConatiner>
+            </SelectButtonContainer>
+            <SocialIcons>
+              <Links href="#" passHref>
+                <FooterLink width="15%" height="15%">
+                  <Image src="/image/instagram.svg" alt="instagram" layout="responsive" width="100" height="100" sizes="100vw" />
+                </FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink width="15%" height="15%">
+                  <Image src="/image/twitter.svg" alt="twitter" layout="responsive" width="100" height="100" sizes="100vw" />
+                </FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink width="15%" height="15%">
+                  <Image src="/image/linkedin.svg" alt="linkedin" layout="responsive" width="100" height="100" sizes="100vw" />
+                </FooterLink>
+              </Links>
+              <Links href="#" passHref>
+                <FooterLink width="15%" height="15%">
+                  <Image src="/image/youtube.svg" alt="youtube" layout="responsive" width="100" height="100" sizes="100vw" />
+                </FooterLink>
+              </Links>
+            </SocialIcons>
+          </FoterSocial>
+        </FooterWrapper>
+        <FooterLogo>
+          <Links href="#" passHref>
+            <FooterLink width="15%" height="15%" blackLogo>
+              <Image src="/image/footerLogo.svg" alt="logo-black" layout="responsive" width="100" height="50" sizes="100vw" />
+            </FooterLink>
+          </Links>
+          <p>© {year} HighTable LLC All rights reserved.</p>
+        </FooterLogo>
+      </Footer>
     </Layout>
   );
 }
