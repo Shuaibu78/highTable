@@ -9,7 +9,8 @@ export const Section = styled.section`
   width: 90%;
   margin-inline: auto;
   display: grid;
-  grid-template-columns: ${props => props.isEqual ? "30% 40%" : "30% 70%"};
+  grid-template-columns: ${props => props.column};
+  margin-bottom: ${props => props.marginBottom || "0px"};
   margin-top: 30px;
   justify-content: space-between;
 
@@ -25,6 +26,7 @@ export const HeroTextContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-top: ${props => props.secondary ? "5rem" : "0px"};
 `;
 
 export const HeroTitleWrapper = styled.div`
@@ -36,6 +38,12 @@ ${media.mobile}{
     justify-content: center;
     align-items: center;
   }
+`;
+
+export const TestimonyTitleWrapper = styled.div`
+  display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const HeroDescription = styled.span`
@@ -88,7 +96,7 @@ export const HeroDescriptionMobile = styled.span`
 
 export const HeroTitle = styled.h1`
   color: ${props => props.primary ? props.theme.primaryColor : "#242424"};
-  font-size: ${props => props.secondary ? "40px" : "60px"};
+  font-size: ${props => props.secondary ? "36px" : "60px"};
   margin-top: 0px;
   margin-bottom: 0.2em;
   font-family: ${props => props.theme.primaryFont};
@@ -106,6 +114,33 @@ export const HeroTitle = styled.h1`
 
   ${media.tablet}{
     font-size: ${props => props.theme.xxl};
+  }
+
+  ${media.tablet}{
+    font-size: ${props => props.theme.xxl};
+  }
+`;
+
+export const TestimonyTiltle = styled.h4`
+  color: ${props => props.primary ? props.theme.primaryColor : "#242424"};
+  font-size: ${props => props.secondary ? "24px" : "30px"};
+  margin-top: 0px;
+  margin-bottom: 0.2em;
+  font-family: ${props => props.theme.primaryFont};
+  font-style: normal;
+  font-weight: 700;
+  line-height: ${props => props.secondary ? "30px" : "37px"};
+
+  ${media.mediumScreenLaptop}{
+    font-size: ${props => props.secondary ? "20px" : "26px"};
+  }
+
+  ${media.smallScreenLaptop}{
+    font-size: ${props => props.secondary ? "18px" : "24px"};
+  }
+
+  ${media.tablet}{
+    font-size: ${props => props.secondary ? "16px" : "20px"};
   }
 
   ${media.tablet}{
@@ -213,6 +248,14 @@ export const Card = styled.div`
   box-shadow: ${props => props.theme.primaryBoxShadow};
 `;
 
+export const CardEmpty = styled.div`
+  width: 300px;
+  height: 150px;
+  border: none;
+  outline: none;
+  background: transparent;
+`;
+
 export const CardTitle = styled.h3`
   color: ${props => props.selected ? "white" : props.theme.lightGrey};
   font-family: ${props => props.theme.primaryFont};
@@ -230,4 +273,275 @@ export const CardDetails = styled.div`
   line-height: ${props => props.theme.xl};
   color: ${props => props.selected ? "white" : "#4A4A52"};
   text-align: center;
+`;
+
+export const AboutSectrion = styled.section`
+  margin-top: 12rem;
+  width: 100%;
+  background-color: #FFD59F;
+  padding-block: 3rem;
+`;
+
+export const AboutTitle = styled.h3`
+  font-family: ${props => props.theme.primaryFont};
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37px;
+  color: #212121;
+`;
+
+export const ContentTile = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+export const VerticalLine = styled.div`
+  border-left: 3px solid ${props => props.primaryColor ? props.theme.primaryColor : "#212121"};
+  height: auto;
+
+  h4 {
+    font-family: ${props => props.theme.primaryFont};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0px;
+    color: ${props => props.primaryColor ? props.theme.primaryColor : "#212121"};
+    padding-left: 20px;
+  }
+`;
+
+export const ContentDetails = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: .5rem;
+`;
+
+export const Paragraph = styled.p`
+  font-family: ${props => props.theme.primaryFont};
+  font-style: normal;
+  font-weight: ${props => props.whiteBg ? 300 : 500};
+  font-size: 22px;
+  line-height: 151.4%;
+  color: ${props => props.whiteBg ? "#000000" : "#212121"};
+`;
+
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: ${props => props.center ? "center" : "flex-start"};
+`;
+
+export const ImageWrapper = styled.div`
+display: flex;
+align-items: flex-start;
+  width: 100%;
+
+  span {
+    width: 100% !important;
+    height: auto !important;
+
+    img {
+      width: 100% !important;
+    height: auto !important;
+    }
+  }
+`;
+
+export const ImageWrapperForOffer = styled.div`
+display: flex;
+align-items: flex-start;
+  width: 100%;
+
+  span {
+    width: 100% !important;
+    height: auto !important;
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: cover;
+
+    }
+  }
+`;
+
+export const ValuesContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  align-content: center;
+  column-gap: 20px;
+  row-gap: 20px;
+  margin-inline: auto;
+`;
+
+export const ValuesWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 2rem;
+`;
+
+export const ValueCard = styled.div`
+  border-left: ${props => props.leftBorder ? "3px solid #FFF7E7" : "none"};
+  padding-left: ${props => props.leftBorder ? "20px" : "0px"};
+
+  h4 {
+    font-family: ${props => props.theme.primaryFont};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0px;
+    color: #212121;
+  }
+`;
+
+export const ReasonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  margin-top: 3rem;
+`;
+
+export const ReasonCard = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 40px;
+  background: #FFFFFF;
+  box-shadow: 1.46958e-15px 16px 47px rgba(85, 61, 0, 0.12);
+  border-radius: 31px;
+  width: 35%;
+  height: 277px;
+  margin-bottom: 30px;
+`;
+
+export const IconContainer = styled.div`
+  flex: 10%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+`;
+
+export const ReasonDetails = styled.div`
+  flex: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 10px;
+
+  h4 {
+    color: #414148;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 40px;
+    margin-block: 0px;
+  }
+
+  p {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 33px;
+    color: #4A4A52;
+    text-align: left;
+    width: 90%;
+  }
+`;
+
+export const BusinessSection = styled.div`
+  width: 100%;
+  background-color: white;
+  margin-top: 10rem;
+`;
+
+export const BusinessCardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5rem;
+`;
+
+export const BusinessCards = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 62px 62px 40px 40px;
+  border: 1px solid #E5E5E5;
+  width: 24%;
+
+  span {
+    width: 100% !important;
+    height: 252px !important;
+  }
+
+  img {
+    width: 100% !important;
+    height: 252px !important;
+  }
+`;
+
+export const BusinessDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #08101E;
+    margin-block: 0.2em;
+  }
+
+  p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 33px;
+    color: rgba(0, 0, 0, 0.76);
+    margin-bottom: 0px;
+  }
+`;
+
+export const BusinessBtnContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-right: 20px;
+
+  button {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    color: #FF9916;
+    outline: none;
+    background-color: transparent;
+    border: none;
+  }
 `;
