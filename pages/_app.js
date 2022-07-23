@@ -1,13 +1,16 @@
 import '../styles/globals.css'
 import { ThemeProvider } from 'styled-components';
-import { Colors, media, FontSizes, FontFamily, BoxShadow} from "../styles/theme";
+import { SessionProvider } from "next-auth/react";
+import { Colors, media, FontSizes, FontFamily, BoxShadow } from "../styles/theme";
 
-function MyApp({ Component, pageProps }) {
-  const theme = {...Colors, ...BoxShadow, ...FontFamily, ...FontSizes, ...media}
+function MyApp({ Component, pageProps: { session, ...pageProps }, }) {
+  const theme = { ...Colors, ...BoxShadow, ...FontFamily, ...FontSizes, ...media }
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <SessionProvider session={session}>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </SessionProvider>
   )
 }
 
