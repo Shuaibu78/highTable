@@ -327,7 +327,7 @@ export default function Home() {
             </ReasonContainer>
           </Section>
         </AboutSectrion>
-        <BusinessSection>
+        <BusinessSection id="business">
           <Section column="100%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentTile>
               <VerticalLine primaryColor><h4>Business</h4></VerticalLine>
@@ -383,7 +383,7 @@ export default function Home() {
             </BusinessCardsContainer>
           </Section>
         </BusinessSection>
-        <BusinessSection>
+        <BusinessSection id="consumer">
           <Section column="100%" marginBottom={{ d: "6rem", m: "3rem" }}>
             <ContentTile>
               <VerticalLine primaryColor><h4>Consumer</h4></VerticalLine>
@@ -445,7 +445,7 @@ export default function Home() {
             </BusinessCardsContainer>
           </Section>
         </BusinessSection>
-        <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }}>
+        <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }} id="blog">
           <ContentContainer marginBottom={{ m: "3rem" }}>
             <ImageWrapper><Image src="/image/blog.svg" alt="logo" layout="responsive" width="100" height="70" sizes="100vw" /></ImageWrapper>
           </ContentContainer>
@@ -462,7 +462,7 @@ export default function Home() {
             <SignupBtn>Get Informed</SignupBtn>
           </ContentContainer>
         </Section>
-        <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }}>
+        <Section column="40% 40%" marginBottom={{ d: "6rem", m: "3rem" }} id="career">
           <ContentContainer center marginBottom={{ m: "3rem" }}>
             <ContentTile>
               <VerticalLine primaryColor><h4>Join our Amazing Team</h4></VerticalLine>

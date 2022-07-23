@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import {
@@ -19,35 +19,62 @@ import {
 const MainNavbar = () => {
   const [extendedNavbar, setExtendedNavbar] = useState(false);
   const router = useRouter();
+  const homeHref = "/";
+  const aboutHref = "#about";
+  const businessHref = "#business";
+  const consumerHref = "#consumer";
+  const blogHref = "#blog";
+  const careerHref = "#career";
+
+const [scrollY, setScrollY] = useState(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  // just trigger this so that the initial state
+  // is updated as soon as the component is mounted
+  // related: https://stackoverflow.com/a/63408216
+  handleScroll();
+
+  window.addEventListener("scroll", handleScroll);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
   return (
-    <NavbarContainer extendedNavbar={extendedNavbar}>
+    <NavbarContainer extendedNavbar={extendedNavbar} fixed={scrollY > 100}>
       <NavbarInnerContainer>
         <LeftContainer>
           <Image src="/image/logo.svg" alt="logo" width="256" height="150" />
         </LeftContainer>
         <RightContainer>
           <NavbarLinkContainer>
-            <NavbarLink href="/" passHref>
-              <NavLink active={router.pathname === "/"}>Home</NavLink>
+            <NavbarLink href={homeHref} passHref>
+              <NavLink active={router.pathname === homeHref}>Home</NavLink>
             </NavbarLink>
-            <NavbarLink href="/about" passHref>
-              <NavLink active={router.pathname === "/about"}>About</NavLink>
+            <NavbarLink href={aboutHref} passHref>
+              <NavLink active={router.pathname === aboutHref}>About</NavLink>
             </NavbarLink>
-            <NavbarLink href="/business" passHref>
-              <NavLink active={router.pathname === "/business"}>
+            <NavbarLink href={businessHref} passHref>
+              <NavLink active={router.pathname === businessHref}>
                 Business
               </NavLink>
             </NavbarLink>
-            <NavbarLink href="/consumer" passHref>
-              <NavLink active={router.pathname === "/consumer"}>
+            <NavbarLink href={consumerHref} passHref>
+              <NavLink active={router.pathname === consumerHref}>
                 Consumer
               </NavLink>
             </NavbarLink>
-            <NavbarLink href="/blog" passHref>
-              <NavLink active={router.pathname === "/blog"}>Blog</NavLink>
+            <NavbarLink href={blogHref} passHref>
+              <NavLink active={router.pathname === blogHref}>Blog</NavLink>
             </NavbarLink>
-            <NavbarLink href="/career" passHref>
-              <NavLink active={router.pathname === "/career"}>Careers</NavLink>
+            <NavbarLink href={careerHref} passHref>
+              <NavLink active={router.pathname === careerHref}>Careers</NavLink>
             </NavbarLink>
             <NavBtn primary>Join HighTable</NavBtn>
             {/* <NavBtn>Login</NavBtn> */}
@@ -72,34 +99,34 @@ const MainNavbar = () => {
         </RightContainer>
       </NavbarInnerContainer>
       {extendedNavbar && (
-        <NavbarExtendedContainer>
-          <NavbarLinkExtended href="/" passHref>
-            <NavLinkExtended active={router.pathname === "/"}>
+        <NavbarExtendedContainer fixed={scrollY > 100}>
+          <NavbarLinkExtended href={homeHref} passHref>
+            <NavLinkExtended active={router.pathname === homeHref}>
               Home
             </NavLinkExtended>
           </NavbarLinkExtended>
-          <NavbarLinkExtended href="/about" passHref>
-            <NavLinkExtended active={router.pathname === "/about"}>
+          <NavbarLinkExtended href={aboutHref} passHref>
+            <NavLinkExtended active={router.pathname === aboutHref}>
               About
             </NavLinkExtended>
           </NavbarLinkExtended>
-          <NavbarLinkExtended href="/business" passHref>
-            <NavLinkExtended active={router.pathname === "/business"}>
+          <NavbarLinkExtended href={businessHref} passHref>
+            <NavLinkExtended active={router.pathname === businessHref}>
               Business
             </NavLinkExtended>
           </NavbarLinkExtended>
-          <NavbarLinkExtended href="/consumer" passHref>
-            <NavLinkExtended active={router.pathname === "/consumer"}>
+          <NavbarLinkExtended href={consumerHref} passHref>
+            <NavLinkExtended active={router.pathname === consumerHref}>
               Consumer
             </NavLinkExtended>
           </NavbarLinkExtended>
-          <NavbarLinkExtended href="/blog" passHref>
-            <NavLinkExtended active={router.pathname === "/blog"}>
+          <NavbarLinkExtended href={blogHref} passHref>
+            <NavLinkExtended active={router.pathname === blogHref}>
               Blog
             </NavLinkExtended>
           </NavbarLinkExtended>
-          <NavbarLinkExtended href="/career" passHref>
-            <NavLinkExtended active={router.pathname === "/career"}>
+          <NavbarLinkExtended href={careerHref} passHref>
+            <NavLinkExtended active={router.pathname === careerHref}>
               Careers
             </NavLinkExtended>
           </NavbarLinkExtended>
@@ -109,6 +136,6 @@ const MainNavbar = () => {
       )}
     </NavbarContainer>
   );
-};
+};;
 
 export default MainNavbar;

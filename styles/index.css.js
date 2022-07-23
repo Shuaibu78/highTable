@@ -613,6 +613,7 @@ export const BusinessCards = styled.div`
   }
 
   ${media.mobile} {
+    border-radius: 95px 95px 40px 40px;
     width: 100%;
     height: auto;
     margin-bottom: 2rem;

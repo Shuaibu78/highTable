@@ -8,6 +8,11 @@ export const NavbarContainer = styled.nav`
   background-color: white;
   display: flex;
   flex-direction: column;
+  position: ${props => props.fixed ? "fixed" : "static"};
+  z-index: 2;
+  top: ${props => props.fixed ? 0 : "auto"};
+  left: ${props => props.fixed ? 0 : "auto"};
+  box-shadow: ${props => props.fixed ? props.theme?.primaryBoxShadow : "none"};
 `;
 
 export const LeftContainer = styled.div`
@@ -119,7 +124,7 @@ export const NavbarExtendedContainer = styled.div`
   background-color: #FFFAF3;
   height: 100vh;
   position: fixed;
-  inset: 20% 0 0 40%;
   text-align: center;
   padding-top: 30px;
+  inset: ${props => props.fixed ? "13% 0 0 40%" : "20% 0 0 40%"};
 `;
